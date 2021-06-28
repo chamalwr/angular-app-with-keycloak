@@ -17,7 +17,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.loadProfile().then(
-      user => this.loggedUser = user.firstName + ' '  + user.lastName 
+      user => this.loggedUser = user.firstName + ' '  + user.lastName
     )
   }
 
@@ -51,5 +51,9 @@ export class AppComponent {
 
   navigateToAdmins(){
     this.navigationRouter.navigate(['/admin']);
+  }
+
+  navigateToHome(){
+    this.navigationRouter.navigate(['/']);
   }
 }
