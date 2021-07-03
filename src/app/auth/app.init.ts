@@ -9,10 +9,12 @@ export function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'poshpetclinic-web',
       },
       initOptions: {
+        checkLoginIframe: true,
+        checkLoginIframeInterval: 600,
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
         'http://localhost:4200',
-        //   window.location.origin + '/assets/silent-check-sso.html',
+          // window.location.origin + '/assets/silent-check-sso.html',
       },
     });
 }

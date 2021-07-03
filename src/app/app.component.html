@@ -1,16 +1,34 @@
 <mat-toolbar color="primary">
-  <span>Posh Pet Clinic</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-  (click) = "login()">
-    Sign in
+  <button mat-icon-button class="example-icon">
+    <mat-icon (click)="navigateToHome()">home</mat-icon>
   </button>
 
+  <span (click)="navigateToHome()">Posh Pet Clinic</span>
+  <span class="example-spacer"></span>
+
+  <button mat-button [mat-menu-trigger-for]="petMenu">Pets' Section</button>
+  <mat-menu #petMenu>
+    <button mat-menu-item>Add a Pet</button>
+    <button mat-menu-item (click) = "navigateToPets()">View Pets</button>
+  </mat-menu>
+
+  <button mat-button [mat-menu-trigger-for]="ownerMenu">Owners' Section</button>
+  <mat-menu #ownerMenu>
+    <button mat-menu-item>Add an Pet Owner</button>
+    <button mat-menu-item (click) = "navigateToOwners()">View Owners</button>
+  </mat-menu>
+
+  <button mat-button [mat-menu-trigger-for]="adminMenu">Admin Section</button>
+  <mat-menu #adminMenu>
+    <button mat-menu-item>Add an Admin</button>
+    <button mat-menu-item (click) = "navigateToAdmins()">View Admins</button>
+  </mat-menu>
+
+  <span class="example-spacer"></span>
   <span>{{ loggedUser }}</span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-  (click) = "logout()">
-    Log Out
-  </button>
+  <span class="example-spacer"></span>
+  <button mat-button (click) = "login()"> Sign in </button>
+  <button mat-button (click) = "logout()"> Log Out </button>
 
 </mat-toolbar>
 

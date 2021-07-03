@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 
 @Component({
@@ -11,11 +12,12 @@ export class AppComponent {
 
   loggedUser : string = '';
 
-  constructor(private keyCloakService: KeycloakService) { }
+  constructor(private keyCloakService: KeycloakService,
+              private navigationRouter: Router) { }
 
   ngOnInit(): void {
     this.loadProfile().then(
-      user => this.loggedUser = user.firstName + ' '  + user.lastName 
+      user => this.loggedUser = user.firstName + ' '  + user.lastName
     )
   }
 
@@ -37,5 +39,21 @@ export class AppComponent {
 
   logout(){
     this.keyCloakService.logout();
+  }
+
+  navigateToPets(){
+    this.navigationRouter.navigate(['/pet']);
+  }
+
+  navigateToOwners(){
+    this.navigationRouter.navigate(['/owner']);
+  }
+
+  navigateToAdmins(){
+    this.navigationRouter.navigate(['/admin']);
+  }
+
+  navigateToHome(){
+    this.navigationRouter.navigate(['/']);
   }
 }
