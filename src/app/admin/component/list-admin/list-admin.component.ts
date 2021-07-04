@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminService} from '../../service/admin.service';
 
 @Component({
   selector: 'ppc-list-admin',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.adminService.getAllAdmins();
   }
 
 }
