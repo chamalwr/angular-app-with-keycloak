@@ -39,7 +39,8 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let pet">
-        <button mat-flat-button color="accent" class="button-spacing">Edit</button>
+        <button mat-flat-button color="accent" class="button-spacing"
+        (click)="updatePet(pet._id)">Edit</button>
         <button mat-flat-button color="warn" class="button-spacing"
         (click)="deletePet(pet._id)">Delete</button>
       </td>

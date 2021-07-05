@@ -11,6 +11,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -19,15 +20,16 @@ import {FormsModule} from '@angular/forms';
     ListOwnerComponent,
     AddOwnerComponent
   ],
-  imports: [
-    CommonModule,
-    OwnerRoutingModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatInputModule,
-    MatButtonModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        OwnerRoutingModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatInputModule,
+        MatButtonModule,
+        FormsModule,
+        MatSelectModule
+    ],
   providers: [OwnerService]
 })
 export class OwnerModule { }

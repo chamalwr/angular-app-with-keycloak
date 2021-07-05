@@ -3,6 +3,7 @@ import {Observable, Subscription} from 'rxjs';
 import {Owner} from '../../../shared/model/owner.model';
 import {OwnerService} from '../../service/owner.service';
 import {MatTableDataSource} from '@angular/material/table';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ppc-list-owner',
@@ -14,7 +15,8 @@ export class ListOwnerComponent implements OnInit, OnDestroy {
   subscriber!: Subscription;
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'zipCode', 'contactNumber', 'email', 'actions'];
   dataSource!: any;
-  constructor(private ownerService: OwnerService) { }
+  constructor(private ownerService: OwnerService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.subscriber = this.getAllOwners().subscribe({
@@ -47,8 +49,11 @@ export class ListOwnerComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  updateOwner(id: string): void {
+    this.router.navigate(['/owner/editOwner'], { queryParams: { id: id.toString() } });
+  }
+
   ngOnDestroy(): void {
     this.subscriber.unsubscribe();
   }
-
 }
