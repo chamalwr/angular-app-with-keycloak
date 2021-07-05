@@ -8,19 +8,19 @@
 
   <button mat-button [mat-menu-trigger-for]="petMenu">Pets' Section</button>
   <mat-menu #petMenu>
-    <button mat-menu-item>Add a Pet</button>
+    <button mat-menu-item (click)="navigateToAddPets()">Add a Pet</button>
     <button mat-menu-item (click) = "navigateToPets()">View Pets</button>
   </mat-menu>
 
   <button mat-button [mat-menu-trigger-for]="ownerMenu">Owners' Section</button>
   <mat-menu #ownerMenu>
-    <button mat-menu-item>Add an Pet Owner</button>
+    <button mat-menu-item (click)="navigateToAddOwner()">Add an Pet Owner</button>
     <button mat-menu-item (click) = "navigateToOwners()">View Owners</button>
   </mat-menu>
 
   <button mat-button [mat-menu-trigger-for]="adminMenu">Admin Section</button>
   <mat-menu #adminMenu>
-    <button mat-menu-item>Add an Admin</button>
+    <button mat-menu-item (click)="navigateToAddAdmin()">Add an Admin</button>
     <button mat-menu-item (click) = "navigateToAdmins()">View Admins</button>
   </mat-menu>
 

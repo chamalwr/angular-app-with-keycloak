@@ -26,7 +26,7 @@ export class AppComponent {
       if(this.keyCloakService.isLoggedIn()){
         this.keyCloakService.loadUserProfile()
             .then(data => resolve(data))
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
       }else{
         console.log("User is not logged in");
       }
@@ -54,6 +54,18 @@ export class AppComponent {
   }
 
   navigateToHome(){
-    this.navigationRouter.navigate(['/']);
+    this.navigationRouter.navigate(['/home']);
+  }
+
+  navigateToAddPets() {
+    this.navigationRouter.navigate(['/pet/addpet']);
+  }
+
+  navigateToAddOwner() {
+    this.navigationRouter.navigate(['/owner/addOwner']);
+  }
+
+  navigateToAddAdmin() {
+    this.navigationRouter.navigate(['/admin/addadmin']);
   }
 }

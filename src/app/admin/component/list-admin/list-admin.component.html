@@ -1,1 +1,56 @@
-<p>list-admin works!</p>
+<mat-form-field>
+  <mat-label>Find Admins</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Name/ID" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let admin"> {{admin._id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> First Name </th>
+    <td mat-cell *matCellDef="let admin"> {{ admin.firstName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let admin"> {{ admin.lastName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let admin"> {{ admin.email }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="contactNumber">
+    <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+    <td mat-cell *matCellDef="let admin"> {{ admin.contactNumber }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="branch">
+    <th mat-header-cell *matHeaderCellDef> Branch </th>
+    <td mat-cell *matCellDef="let admin"> {{ admin.branch }} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let admin">
+      <button mat-flat-button color="accent" class="button-spacing">Edit</button>
+      <button mat-flat-button color="warn" class="button-spacing"
+              (click)="deleteAdmin(admin._id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+
+</table>

@@ -10,6 +10,9 @@ import { EditPetComponent } from './component/edit-pet/edit-pet.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
+import {PetService} from './service/pet.service';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     MatButtonModule,
     MatToolbarModule,
-    MatDividerModule
-  ]
+    MatDividerModule,
+    MatTableModule,
+    MatInputModule
+  ],
+  providers: [PetService]
 })
 export class PetModule { }

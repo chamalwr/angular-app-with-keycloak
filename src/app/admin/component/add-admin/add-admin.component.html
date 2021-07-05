@@ -1,1 +1,38 @@
-<p>add-admin works!</p>
+<h1 align="center">Add an Admin</h1>
+
+<form class="example-form" #addAdminForm = "ngForm" (ngSubmit)="addAnAdmin(addAdminForm)">
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput name="firstName" ngModel>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput name="lastName" ngModel>
+    </mat-form-field></td>
+  </tr></table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input type="tel" matInput name = "contactNumber" ngModel>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" ngModel>
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Department</mat-label>
+      <mat-select ngModel name="department">
+        <mat-option value="CUSTOMER_SERVICE">Customer Service</mat-option>
+        <mat-option value="DOCTOR">Doctor</mat-option>
+        <mat-option value="HR">Human Resource</mat-option>
+      </mat-select>
+    </mat-form-field></td>
+  </tr></table>
+  <button mat-flat-button color="primary" type="submit">Add</button>
+</form>
