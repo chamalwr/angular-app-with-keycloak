@@ -1,1 +1,39 @@
-<p>edit-admin works!</p>
+<h1 align="center">Update Admin Details</h1>
+
+<form class="example-form" #updateAdminForm = "ngForm" (ngSubmit)="updateAdmin(updateAdminForm)">
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <input name = "id" ngModel="id" hidden>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput name="firstName" [ngModel] = "firstName">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput name="lastName" [ngModel] = "lastName">
+    </mat-form-field></td>
+  </tr></table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input type="tel" matInput name = "contactNumber" [ngModel] = "contactNumber">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" [ngModel] = "email">
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Department</mat-label>
+      <mat-select [ngModel]="department" name="department">
+        <mat-option value="CUSTOMER_SERVICE">Customer Service</mat-option>
+        <mat-option value="DOCTOR">Doctor</mat-option>
+        <mat-option value="HR">Human Resource</mat-option>
+      </mat-select>
+    </mat-form-field></td>
+  </tr></table>
+  <button mat-flat-button color="primary" type="submit">Update</button>
+</form>

@@ -1,1 +1,28 @@
-<p>edit-pet works!</p>
+<h1 align="center">Update Pet Details</h1>
+
+<form class="example-form" #updatePetForm="ngForm" (ngSubmit)="updatePetDetail(updatePetForm)">
+
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput name = "name" [ngModel]="name">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Type</mat-label>
+      <input matInput name = "type" [ngModel]="type">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Breed</mat-label>
+      <input matInput name = "breed" [ngModel]="breed">
+    </mat-form-field></td>
+  </tr></table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Age</mat-label>
+      <input matInput name = "age" [ngModel]="age">
+    </mat-form-field>
+  </p>
+  <button mat-flat-button color="primary" type="submit">Update</button>
+</form>

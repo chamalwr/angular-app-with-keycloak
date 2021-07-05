@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {AdminService} from '../../service/admin.service';
 import {Observable, Subscription} from 'rxjs';
 import {Admin} from '../../../shared/model/admin.model';
 import {MatTableDataSource} from '@angular/material/table';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ppc-list-admin',
@@ -14,7 +15,8 @@ export class ListAdminComponent implements OnInit, OnDestroy {
   subscriber!: Subscription;
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'contactNumber', 'email', 'branch', 'actions'];
   dataSource!: any;
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.subscriber = this.getAllAdmins().subscribe({
@@ -54,5 +56,9 @@ export class ListAdminComponent implements OnInit, OnDestroy {
             console.error('There was an error!', error);
           }
         });
+  }
+
+  updateAdmin(id: string): void {
+    this.router.navigate(['/admin/editadmin'], { queryParams: { id: id.toString() } });
   }
 }

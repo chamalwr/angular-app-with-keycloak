@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Owner} from '../../shared/model/owner.model';
 import {CreateOwnerDto} from '../../shared/model/create-owner.dto';
+import {UpdateOwnerDto} from '../../shared/model/update-owner.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,10 @@ import {CreateOwnerDto} from '../../shared/model/create-owner.dto';
 export class OwnerService {
   BASE_URL = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
+
+  getOwnerById(id: string): Observable<Owner> {
+    return this.http.get<Owner>(`${this.BASE_URL}owner/${id}`);
+  }
 
   getAllOwners(): Observable<Owner[]>{
     return this.http.get<Owner[]>(`${this.BASE_URL}owner`);
@@ -21,5 +26,9 @@ export class OwnerService {
 
   deleteOwner(id: string): Observable<any>{
     return this.http.delete(`${this.BASE_URL}owner/${id}`, {responseType: 'text'});
+  }
+
+  updateOwner(updateOwnerDto: UpdateOwnerDto): Observable<any> {
+    return this.http.put(`${this.BASE_URL}owner`, updateOwnerDto);
   }
 }

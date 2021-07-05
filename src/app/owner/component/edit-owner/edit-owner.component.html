@@ -1,1 +1,45 @@
-<p>edit-owner works!</p>
+<h1 align="center">Update Owner Details</h1>
+
+<form class="example-form" #updateOwnerForm = "ngForm" (ngSubmit)="updateOwner(updateOwnerForm)">
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput name = "firstName" [ngModel]="firstName">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput name = "lastName" [ngModel]="lastName">
+    </mat-form-field></td>
+  </tr></table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Address</mat-label>
+      <textarea matInput name = "address" [ngModel]="address"></textarea>
+    </mat-form-field>
+  </p>
+
+  <p>
+  <td>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Zip Code</mat-label>
+      <input matInput #zipCodeInput maxlength="6" name="zipCode" [ngModel]="zipCode">
+      <mat-hint align="end">{{zipCodeInput.value.length}} / 6</mat-hint>
+    </mat-form-field>
+  </td>
+  </p>
+
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input matInput name = "contactNumber" [ngModel]="contactNumber">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" [ngModel]="email">
+    </mat-form-field></td>
+  </tr></table>
+  <button mat-flat-button color="primary" type="submit">Update</button>
+</form>

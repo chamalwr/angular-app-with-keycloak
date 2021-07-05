@@ -3,6 +3,7 @@ import {PetService} from '../../service/pet.service';
 import {Pet} from '../../../shared/model/pet.model';
 import {Observable, Subscription} from 'rxjs';
 import {MatTableDataSource} from '@angular/material/table';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ppc-list-pet',
@@ -14,7 +15,8 @@ export class ListPetComponent implements OnInit, OnDestroy {
   subscriber!: Subscription;
   displayedColumns: string[] = ['id', 'name', 'age', 'breed', 'type', 'actions'];
   dataSource!: any;
-  constructor(private petService: PetService) { }
+  constructor(private petService: PetService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.subscriber = this.getAllPets().subscribe({
@@ -38,8 +40,13 @@ export class ListPetComponent implements OnInit, OnDestroy {
         },
         error: error => {
           console.error('There was an error!', error);
+          alert(error);
         }
       });
+  }
+
+  updatePet(id: string): void {
+    this.router.navigate(['/pet/editpet'], {queryParams: {id: id.toString() }});
   }
 
   applyFilter(event: Event): void {
