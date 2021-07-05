@@ -3,7 +3,6 @@ import {PetService} from '../../service/pet.service';
 import {Pet} from '../../../shared/model/pet.model';
 import {Observable, Subscription} from 'rxjs';
 import {MatTableDataSource} from '@angular/material/table';
-import {coerceStringArray} from '@angular/cdk/coercion';
 
 @Component({
   selector: 'ppc-list-pet',
@@ -22,7 +21,6 @@ export class ListPetComponent implements OnInit, OnDestroy {
       next: data => {
         this.pets = data;
         this.dataSource = new MatTableDataSource(data);
-        console.log(data);
       }
     });
   }
@@ -31,11 +29,12 @@ export class ListPetComponent implements OnInit, OnDestroy {
     return this.petService.getAllPets();
   }
 
-  deletePet(id: string) {
+  deletePet(id: string): void {
     this.petService.deletePet(id)
       .subscribe({
         next: data => {
           console.log('Delete Success');
+          window.location.reload();
         },
         error: error => {
           console.error('There was an error!', error);

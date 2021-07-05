@@ -56,4 +56,16 @@ export class AppComponent {
   navigateToHome(){
     this.navigationRouter.navigate(['/home']);
   }
+
+  navigateToAddPets() {
+    this.navigationRouter.navigate(['/pet/addpet']);
+  }
+
+  navigateToAddOwner() {
+    this.navigationRouter.navigate(['/owner/addOwner']);
+  }
+
+  navigateToAddAdmin() {
+    this.navigationRouter.navigate(['/admin/addadmin']);
+  }
 }

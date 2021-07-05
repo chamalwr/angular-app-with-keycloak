@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { initializeKeycloak } from './auth/app.init'
+import { initializeKeycloak } from './auth/app.init';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
